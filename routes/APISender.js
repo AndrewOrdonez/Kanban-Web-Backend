@@ -5,7 +5,9 @@ const keys = require('../config/keys');
 const Board = require('../models/board-model');
 const User = require('../models/user-model');
 
-
+mongoose.connect(keys.mongodb.dbURI, () => {
+    console.log('APISender.js connected to mongodb')
+})
 
 
 router.get("/", function(req, res, next) {
