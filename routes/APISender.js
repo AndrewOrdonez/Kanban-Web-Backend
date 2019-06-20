@@ -5,6 +5,7 @@ const keys = require('../config/keys');
 const Board = require('../models/board-model');
 const User = require('../models/user-model');
 
+
 router.get("/", function(req, res, next) {
     // user = req.user;
     //Board = req.boards;
@@ -15,6 +16,38 @@ router.get("/", function(req, res, next) {
     });
    
 });
+
+router.use(function(req,res,next){
+    oranges = req.boards;
+    strawberries = new Board({
+        name: oranges.name,
+        boardId: oranges.id,
+        backgroundImg: oranges.img,
+        boardUsers: [],
+        swimlanes: oranges.swimLanes
+    }).save().then((newBoard) => {
+        console.log('new board created: ' + newBoard);
+        done(null, newBoard);
+    
+});
+
+// router.use(
+//     Board.then((currentBoard) => {
+//         if(currentBoard){
+//               //already have the user
+//               console.log('board is: ', currentBoard);
+//               done(null,currentBoard);
+//         } else {
+//               //if not, create user in our db
+//               new Board({
+//                   username: profile.displayName,
+//                   googleId: profile.id
+//               }).save().then((newBoard) => {
+//                   console.log('new board created: ' + newBoard);
+//                   done(null, newBoard);
+//               });
+//         }
+//         }))
 
 
 module.exports = router;

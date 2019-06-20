@@ -39,8 +39,6 @@ const boardSchema = new Schema({
         color: String,
         title: String,
     }]
-
-
 });
 
 const Board = mongoose.model('board', boardSchema);
