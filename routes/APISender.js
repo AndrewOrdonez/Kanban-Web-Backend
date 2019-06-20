@@ -6,6 +6,8 @@ const Board = require('../models/board-model');
 const User = require('../models/user-model');
 
 
+
+
 router.get("/", function(req, res, next) {
     // user = req.user;
     //Board = req.boards;
@@ -18,18 +20,39 @@ router.get("/", function(req, res, next) {
 });
 
 router.use(function(req,res,next){
-    oranges = req.boards;
-    strawberries = new Board({
-        name: oranges.name,
-        boardId: oranges.id,
-        backgroundImg: oranges.img,
-        boardUsers: [],
-        swimlanes: oranges.swimLanes
-    }).save().then((newBoard) => {
-        console.log('new board created: ' + newBoard);
-        done(null, newBoard);
-    
-});
+    // oranges = req.boards;
+    // strawberries = new Board({
+    //     name: oranges.name,
+    //     boardId: oranges.id,
+    //     backgroundImg: oranges.img,
+    //     boardUsers: [],
+    //     swimlanes: oranges.swimLanes})
+    first = new Board ({
+            id: uuid(),
+            name: "My First Board",
+            swimLanes: [
+              {
+                title: "Sample1",
+                id: uuid(),
+                cards: [
+                  {
+                    title: "sample card",
+                    description: "This is a sample description",
+                    id: uuid(),
+                    comments: [
+                      {
+                        comment: "This is a sample comment",
+                        id: uuid()
+                    }]}
+                ]}
+            ],
+            img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.memecdn.com%2Fbest-gif-ever_o_901136.gif&f=1"
+          }).save().then((newBoard) => {
+            console.log('new board created: ' + newBoard);
+            done(null, newBoard);
+
+        })
+})
 
 // router.use(
 //     Board.then((currentBoard) => {
@@ -47,7 +70,5 @@ router.use(function(req,res,next){
 //                   done(null, newBoard);
 //               });
 //         }
-//         }))
-
 
 module.exports = router;
