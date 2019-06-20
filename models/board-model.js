@@ -7,7 +7,7 @@ const boardSchema = new Schema({
     name: String,
     boardId: String,
     backgroundImg: String,
-    boardUsers: [User],
+    boardUsers: [Object],
     swimlanes: {
         title: String,
         id: String,
