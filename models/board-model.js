@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const User = require('./user-model');
+
 
 const boardSchema = new Schema({
     name: String,
     boardId: String,
     backgroundImg: String,
-    boardUsers: [userSchema],
+    boardUsers: [User],
     swimlanes: {
         title: String,
         id: String,
