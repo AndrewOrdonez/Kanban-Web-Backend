@@ -19,7 +19,7 @@ router.get("/", function(req, res, next) {
    
 });
 
-router.use(function(req,res,next){
+router.get(function(req,res,next){
     // oranges = req.boards;
     // strawberries = new Board({
     //     name: oranges.name,
@@ -50,7 +50,6 @@ router.use(function(req,res,next){
           }).save().then((newBoard) => {
             console.log('new board created: ' + newBoard);
             done(null, newBoard);
-
         })
 })
 
