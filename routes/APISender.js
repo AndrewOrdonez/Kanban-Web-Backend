@@ -47,7 +47,9 @@ router.get(function(req,res,next){
                 ]}
             ],
             img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.memecdn.com%2Fbest-gif-ever_o_901136.gif&f=1"
-          }).save().then((newBoard) => {
+          }).save(err => {
+              if(err) console.log('failed 123')
+          }).then((newBoard) => {
             console.log('new board created: ' + newBoard);
             done(null, newBoard);
         })
