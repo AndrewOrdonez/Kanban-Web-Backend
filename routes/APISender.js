@@ -15,11 +15,12 @@ console.log("yeah we here")
 router.get("/", function(req, res, next) {
     // user = req.user;
     //Board = req.boards;
-    User.find(function(err, users){
+    User.findOne(function(err, users){
         if(err) return console.log("error nothing sent");
             console.log(users);
        // res.send(boards);
-        res.send(req.user);
+
+        res.send(users);
     });
    
 });

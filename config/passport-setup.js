@@ -24,7 +24,7 @@ passport.use(
         //check if user already exists in database
         console.log(profile);
         User.findOne({googleId: profile.id}).then((currentUser) => {
-            if(currentUser){
+            if(false){
                 //already have the user
                 console.log('user is: ', currentUser);
                 done(null,currentUser);
