@@ -30,6 +30,10 @@ passport.use(
                 done(null,currentUser);
             } else {
                 //if not, create user in our db
+
+                //deletes everything before making new
+                User.deleteMany({}, callback);
+
                 new User({
                     username: profile.displayName,
                     googleId: profile.id,
