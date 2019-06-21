@@ -19,7 +19,7 @@ router.get("/", function(req, res, next) {
         if(err) return console.log("error nothing sent");
             console.log(users);
        // res.send(boards);
-        res.send(users);
+        res.send(req.user);
     });
    
 });
