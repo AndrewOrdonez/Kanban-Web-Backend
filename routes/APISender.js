@@ -18,9 +18,14 @@ router.get("/", function(req, res, next) {
         if(err) return console.log("error nothing sent");
             console.log(boards);
         res.send(boards);
+        res.send(req.user);
     });
    
 });
+
+// router.get("/", function(req, res, next){
+//   res.send(profile)
+// })
 
     // oranges = req.boards;
     // strawberries = new Board({
@@ -30,36 +35,36 @@ router.get("/", function(req, res, next) {
     //     boardUsers: [],
     //     swimlanes: oranges.swimLanes})
 
-  const  first = new Board ({
-            id: 1,
-            name: "My First Board",
-            swimLanes: [
-              {
-                title: "Sample1",
-                id: 11,
-                cards: [
-                  {
-                    title: "sample card",
-                    description: "This is a sample description",
-                    id: 111,
-                    comments: [
-                      {
-                        comment: "This is a sample comment",
-                        id: 1111
-                    }]}
-                ]}
-            ],
-            img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.memecdn.com%2Fbest-gif-ever_o_901136.gif&f=1"
-          });
+  // const  first = new Board ({
+  //           id: 1,
+  //           name: "My First Board",
+  //           swimLanes: [
+  //             {
+  //               title: "Sample1",
+  //               id: 11,
+  //               cards: [
+  //                 {
+  //                   title: "sample card",
+  //                   description: "This is a sample description",
+  //                   id: 111,
+  //                   comments: [
+  //                     {
+  //                       comment: "This is a sample comment",
+  //                       id: 1111
+  //                   }]}
+  //               ]}
+  //           ],
+  //           img: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.memecdn.com%2Fbest-gif-ever_o_901136.gif&f=1"
+  //         });
           
 
-          first.save(err => {
-              if(err) {console.log('failed 123')}
-              else{
-                          console.log(first+"thing sent");
+  //         first.save(err => {
+  //             if(err) {console.log('failed 123')}
+  //             else{
+  //                         console.log(first+"thing sent");
 
-              }
-          });
+  //             }
+  //         });
 
           
         
