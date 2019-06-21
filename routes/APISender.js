@@ -18,7 +18,7 @@ router.get("/", function(req, res, next) {
     Board.find(function(err, boards){
         if(err) return console.log("error nothing sent");
             console.log(boards);
-        res.send(boards);
+       // res.send(boards);
         res.send(req.user);
     });
    
