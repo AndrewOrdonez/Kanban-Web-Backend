@@ -24,16 +24,12 @@ passport.use(
         //check if user already exists in database
         console.log(profile);
         User.findOne({googleId: profile.id}).then((currentUser) => {
-            if(false){
+            if(currentUser){
                 //already have the user
                 console.log('user is: ', currentUser);
                 done(null,currentUser);
             } else {
                 //if not, create user in our db
-
-                //deletes everything before making new
-                User.deleteMany({}, callback);
-
                 new User({
                     username: profile.displayName,
                     googleId: profile.id,

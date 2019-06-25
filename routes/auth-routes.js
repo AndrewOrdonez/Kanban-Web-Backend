@@ -21,7 +21,7 @@ router.get('/google', passport.authenticate('google',{
 //callback route for google to redirect to
 router.get('/google/redirect', passport.authenticate('google'), (req,res) => {
     // res.send(req.user);
-    res.redirect('https://kanban-web-frontend.netlify.com');
+    res.redirect('/profile');
 });
 
 module.exports = router;

@@ -10,20 +10,16 @@ mongoose.connect(keys.mongodb.dbURI, () => {
     console.log('APISender.js connected to mongodb')
 });
 
-console.log("yeah we here")
-
-router.get("/", function(req, res, next) {
-    // user = req.user;
-    //Board = req.boards;
-    User.findOne(function(err, users){
-        if(err) return console.log("error nothing sent");
-            console.log(users);
-       // res.send(boards);
-
-        res.send(users);
-    });
-   
-});
+// router.get("/", function(req, res, next) {
+//     user = req.user;
+//     //Board = req.boards;
+//     User.findOne(function(err, users){
+//         if(err) return console.log("error nothing sent");
+//             console.log(users);
+//        //res.send(boards);
+//         res.send(users);
+//     });
+// });
 
 // router.get("/", function(req, res, next){
 //   res.send(profile)
@@ -64,12 +60,8 @@ router.get("/", function(req, res, next) {
   //             if(err) {console.log('failed 123')}
   //             else{
   //                         console.log(first+"thing sent");
-
   //             }
   //         });
-
-          
-        
 
 // router.use(
 //     Board.then((currentBoard) => {
